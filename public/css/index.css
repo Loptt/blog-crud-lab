@@ -3,6 +3,10 @@ h1 {
     padding: 20px;
 }
 
+#comentariosContainer > h2 {
+    margin: 20px;
+}
+
 .comentario {
     display: flex;
     flex-direction: row;

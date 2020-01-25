@@ -112,8 +112,15 @@ function deleteComment(id) {
 
 function displayComments(resposeJSON) {
     let comments = resposeJSON;
-
     $('#comentariosContainer').empty();
+
+    if (comments.length < 1) {
+        $('#comentariosContainer').append(`
+            <h2>Sin Comentarios</h2>
+        `);
+        return;
+    }
+
 
     comments.forEach(c => {
         $('#comentariosContainer').append(`
