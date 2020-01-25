@@ -10,6 +10,7 @@ function fetchComments() {
             displayComments(resposeJSON);
         },
         error: function(err) {
+            alert("Error al obtener los comentarios");
             console.log(err);
         }
     });
@@ -29,6 +30,8 @@ function fetchCommentsName(name) {
         error: function(err) {
             if (err.status == 404) {
                 alert("No se han encontrado autores con ese nombre");
+            } else {
+                alert("Error al obtener comentarios con autor proporcionado")
             }
             console.log(err.status);
         }
@@ -49,6 +52,11 @@ function postComment(newComment) {
             fetchComments();
         },
         error: function(err) {
+            if (err.status == 406) {
+                alert("Error: no se han proporcionado todos los datos para crear el comentario")
+            } else {
+                alert("Error al crear nuevo comentario");
+            }
             console.log(err);
         }
     });
@@ -68,6 +76,13 @@ function updateComment(comment, id) {
             fetchComments();
         },
         error: function(err) {
+            if (err.status == 406) {
+                alert("Error en los parametros para actualizar el comentario");
+            } else if (err.status == 409) {
+                alert("Error en los parametros para actualizar el comentario");
+            } else if (err.status == 404) {
+                alert("Error: ID proporcionado no existe");
+            }
             console.log(err);
         }
     });
@@ -86,6 +101,9 @@ function deleteComment(id) {
             fetchComments();
         },
         error: function(err) {
+            if (err.status == 404) {
+                alert("Error: ID proporcionado no existe");
+            }
             console.log(err);
             fetchComments();
         }
