@@ -1,8 +1,12 @@
 let express = require('express');
 let uuid = require('uuid/v4');
+let morgan = require('morgan')
 let bodyParser = require('body-parser');
 let jsonParser = bodyParser.json();
 let app = express();
+
+app.use(express.static('public'));
+app.use(morgan('dev'));
 
 let comentarios = [
 {

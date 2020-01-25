@@ -1,0 +1,21 @@
+h1 {
+    text-align: center;
+}
+
+.comentario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.comentarioFormContainer {
+    background-color: #dddddd;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+footer {
+    height: 50px;
+}
